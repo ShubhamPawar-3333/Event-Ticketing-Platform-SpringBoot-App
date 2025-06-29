@@ -1,4 +1,4 @@
-package com.shubhamP.Portfolio.eventTicketingApplication.domain;
+package com.shubhamP.Portfolio.eventTicketingApplication.domain.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

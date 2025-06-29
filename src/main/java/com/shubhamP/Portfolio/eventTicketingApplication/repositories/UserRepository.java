@@ -1,6 +1,6 @@
 package com.shubhamP.Portfolio.eventTicketingApplication.repositories;
 
-import com.shubhamP.Portfolio.eventTicketingApplication.domain.User;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

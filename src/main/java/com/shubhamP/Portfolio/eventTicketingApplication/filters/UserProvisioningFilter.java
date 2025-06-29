@@ -1,13 +1,12 @@
 package com.shubhamP.Portfolio.eventTicketingApplication.filters;
 
-import com.shubhamP.Portfolio.eventTicketingApplication.domain.User;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.User;
 import com.shubhamP.Portfolio.eventTicketingApplication.repositories.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Instanceof;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
