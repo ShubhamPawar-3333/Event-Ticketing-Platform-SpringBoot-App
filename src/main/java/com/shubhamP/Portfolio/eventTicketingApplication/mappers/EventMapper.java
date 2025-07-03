@@ -2,10 +2,9 @@ package com.shubhamP.Portfolio.eventTicketingApplication.mappers;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateTicketTypeRequest;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.*;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.CreateEventRequestDto;
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.CreateEventResponseDto;
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.CreateTicketTypeRequestDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.TicketType;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
@@ -17,5 +16,9 @@ public interface EventMapper {
     CreateEventRequest fromDto(CreateEventRequestDto dto);
 
     CreateEventResponseDto toDto(Event event);
+
+    ListEventTicketTypeResponseDto toDto(TicketType ticketType);
+
+    ListEventResponseDto toListEventResponseDto(Event event);
 
 }

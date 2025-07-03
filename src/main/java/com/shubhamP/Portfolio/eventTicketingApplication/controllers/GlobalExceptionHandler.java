@@ -1,7 +1,7 @@
 package com.shubhamP.Portfolio.eventTicketingApplication.controllers;
 
 
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.ErrorDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.ErrorDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.exceptions.UserNotFoundException;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;

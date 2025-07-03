@@ -1,4 +1,4 @@
-package com.shubhamP.Portfolio.eventTicketingApplication.dtos;
+package com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

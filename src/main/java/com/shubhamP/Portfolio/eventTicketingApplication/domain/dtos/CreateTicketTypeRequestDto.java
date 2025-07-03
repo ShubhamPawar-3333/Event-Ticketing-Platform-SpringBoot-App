@@ -1,4 +1,4 @@
-package com.shubhamP.Portfolio.eventTicketingApplication.dtos;
+package com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

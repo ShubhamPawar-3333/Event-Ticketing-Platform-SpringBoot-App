@@ -2,8 +2,8 @@ package com.shubhamP.Portfolio.eventTicketingApplication.controllers;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.CreateEventRequestDto;
-import com.shubhamP.Portfolio.eventTicketingApplication.dtos.CreateEventResponseDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.CreateEventRequestDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.CreateEventResponseDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.mappers.EventMapper;
 import com.shubhamP.Portfolio.eventTicketingApplication.services.EventService;
 import jakarta.validation.Valid;

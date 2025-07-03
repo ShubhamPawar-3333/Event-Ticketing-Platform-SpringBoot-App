@@ -1,4 +1,4 @@
-package com.shubhamP.Portfolio.eventTicketingApplication.dtos;
+package com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.EventStatusEnum;
 import jakarta.validation.Valid;
