@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -20,7 +21,7 @@ public class CreateEventResponseDto {
     private LocalDateTime salesStart;
     private LocalDateTime salesEnd;
     private EventStatusEnum status;
-    private CreateTicketTypeRequestDto ticketTypes;
+    private List<CreateTicketTypeRequestDto> ticketTypes;
     private LocalDateTime createdAt;
     private LocalDateTime updated;
 }

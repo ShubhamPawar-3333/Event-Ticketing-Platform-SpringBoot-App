@@ -18,8 +18,8 @@ public class SecurityConfig {
             HttpSecurity http,
             UserProvisioningFilter userProvisioningFilter) throws Exception {
         http
-                .authorizeHttpRequests(autorize ->
-                        autorize.anyRequest().authenticated())
+                .authorizeHttpRequests(authorize ->
+                        authorize.anyRequest().authenticated())
                 //.csrf(csrf->csrf.disable())
                 .csrf(AbstractHttpConfigurer::disable) // Lambda replaced by method reference
                 .sessionManagement(session ->
