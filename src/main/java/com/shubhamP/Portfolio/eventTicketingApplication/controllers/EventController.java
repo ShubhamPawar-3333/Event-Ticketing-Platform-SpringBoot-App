@@ -1,6 +1,7 @@
 package com.shubhamP.Portfolio.eventTicketingApplication.controllers;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventRequest;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.GetEventDetailsResponseDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.ListEventResponseDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.CreateEventRequestDto;
@@ -48,6 +49,18 @@ public class EventController {
         return ResponseEntity.ok(
                 events.map(eventMapper::toListEventResponseDto)
         );
+    }
+
+    @GetMapping(path = "/{eventId}")
+    public ResponseEntity<GetEventDetailsResponseDto> getEvent(
+            @AuthenticationPrincipal Jwt jwt,
+            @PathVariable UUID eventId
+    ) {
+        UUID userId = parseUserId(jwt);
+        return eventService.getEventForOrganizer(userId, eventId)
+                .map(eventMapper::toGetEventDetailsResponseDto)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
     private UUID parseUserId(Jwt jwt){
