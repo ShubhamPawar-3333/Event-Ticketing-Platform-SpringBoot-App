@@ -1,8 +1,11 @@
 package com.shubhamP.Portfolio.eventTicketingApplication.controllers;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventRequest;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.UpdateEventRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.GetEventDetailsResponseDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.ListEventResponseDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.UpdateEventRequestDto;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.UpdateEventResponseDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.CreateEventRequestDto;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.CreateEventResponseDto;
@@ -39,6 +42,22 @@ public class EventController {
         CreateEventResponseDto createEventResponsedto = eventMapper.toDto(createdEvent);
 
         return new ResponseEntity<>(createEventResponsedto, HttpStatus.CREATED);
+    }
+
+    @PutMapping(path = "/{eventId}")
+    public ResponseEntity<UpdateEventResponseDto> updateEvent(
+            @AuthenticationPrincipal Jwt jwt,
+            @PathVariable UUID eventId,
+            @Valid @RequestBody UpdateEventRequestDto updateEventRequestDto){
+        UpdateEventRequest updateEventRequest = eventMapper.fromDto(updateEventRequestDto);
+        UUID userId = parseUserId(jwt);
+
+        Event updatedEvent = eventService.updateEventForOrganizer(
+                userId, eventId, updateEventRequest
+        );
+        UpdateEventResponseDto updateEventResponseDto = eventMapper.toUpdateEventResponseDto(updatedEvent);
+
+        return ResponseEntity.ok(updateEventResponseDto);
     }
 
     @GetMapping
