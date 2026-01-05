@@ -2,9 +2,12 @@ package com.shubhamP.Portfolio.eventTicketingApplication.mappers;
 
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateTicketTypeRequest;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.UpdateEventRequest;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.UpdateTicketTypeRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.dtos.*;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.TicketType;
+import org.hibernate.sql.Update;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
@@ -24,5 +27,13 @@ public interface EventMapper {
     GetEventDetailsTicketTypesResponseDto toGetEventDetailsTicketTypesResponseDto(TicketType ticketType);
 
     GetEventDetailsResponseDto toGetEventDetailsResponseDto(Event event);
+
+    UpdateTicketTypeRequest fromDto(UpdateTicketTypeRequestDto dto);
+
+    UpdateEventRequest fromDto(UpdateEventRequestDto dto);
+
+    UpdateTicketTypeResponseDto toUpdateTicketTypeResponseDto(TicketType ticketType);
+
+    UpdateEventResponseDto toUpdateEventResponseDto(Event event);
 
 }
