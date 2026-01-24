@@ -88,7 +88,7 @@ public class EventController {
             @PathVariable UUID eventId
     ) {
         UUID userId = parseUserId(jwt);
-        eventService.deleteEventforOrganizer(userId, eventId);
+        eventService.deleteEventForOrganizer(userId, eventId);
         return ResponseEntity.noContent().build();
     }
 

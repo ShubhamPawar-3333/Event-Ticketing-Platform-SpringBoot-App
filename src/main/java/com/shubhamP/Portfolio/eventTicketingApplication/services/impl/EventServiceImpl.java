@@ -4,6 +4,7 @@ import com.shubhamP.Portfolio.eventTicketingApplication.domain.CreateEventReques
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.UpdateEventRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.UpdateTicketTypeRequest;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.Event;
+import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.EventStatusEnum;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.TicketType;
 import com.shubhamP.Portfolio.eventTicketingApplication.domain.entities.User;
 import com.shubhamP.Portfolio.eventTicketingApplication.exceptions.EventNotFoundException;
@@ -142,7 +143,12 @@ public class EventServiceImpl implements EventService {
 
     @Override
     @Transactional
-    public void deleteEventforOrganizer(UUID organizerId, UUID id) {
+    public void deleteEventForOrganizer(UUID organizerId, UUID id) {
         getEventForOrganizer(organizerId, id).ifPresent(eventRepository::delete);
+    }
+
+    @Override
+    public Page<Event> listPublishedEvents(Pageable pageable) {
+        return eventRepository.findByStatus(EventStatusEnum.PUBLISHED, pageable);
     }
 }
